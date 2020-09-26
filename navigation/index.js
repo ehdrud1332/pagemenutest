@@ -3,7 +3,7 @@ import {Image} from 'react-native';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 
-import theme from '../constants/theme'
+import {theme} from '../constants/index'
 import Browse from "../screens/Browse";
 
 const screens = createStackNavigator(
