@@ -10,7 +10,7 @@ import Navigation from './navigation';
 export default function App() {
   return (
     <Block white>
-        <Navigation />
+        < Navigation />
     </Block>
   );
 }

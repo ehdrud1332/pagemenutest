@@ -10,7 +10,7 @@ import {
 import {theme, mocks} from '../constants/index';
 
 
-import {Block, Text, Button} from '../components'
+import {Block, Text, Button, Card, Badge} from '../components'
 
 const {width} = Dimensions.get('window')
 
@@ -21,6 +21,13 @@ const Browse = props => {
 
     const [categories, setCategories] = useState([]);
     const [active, setActive] = useState("Products")
+
+
+    const [results, setResults] = useState({
+        similarMovie: [],
+        similarVideo: [],
+    });
+
 
 
     const handleTab = tab => {
@@ -49,7 +56,7 @@ const Browse = props => {
         )
     }
 
-    const tabs = ["products", "Inspirations", "shop"]
+    const tabs = ["Products", "Inspirations", "shop"]
 
     return (
         <Block>
@@ -57,7 +64,7 @@ const Browse = props => {
                 <Text h1 bold>
                     Browse
                 </Text>
-                <Button onPress={() => props.navigation.navigate("Settings")}>
+                <Button onPress={() => props.navigation.navigate("Movie")}>
                     <Image source={props.profile.avatar} style={styles.avatar} />
                 </Button>
             </Block>
@@ -66,7 +73,36 @@ const Browse = props => {
                 {tabs.map(tab => renderTab(tab))}
             </Block>
 
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                style={{paddingVertical: theme.sizes.base * 2}}
+            >
+                <Block flex={false} row space="between" style={styles.categories}>
+                    {categories.map(category => (
+                        <TouchableOpacity
+                            key={category.name}
+                            onPress={() => props.navigation.navigate("Detail")}
+                        >
 
+                            <Card center middle shadow style={styles.category}>
+                                <Badge
+                                    margin={[0, 0, 15]}
+                                    size={50}
+                                    color="rgba(41, 216, 143, 0.20)"
+                                >
+                                    <Image source={category.image} />
+                                </Badge>
+                                <Text medium height="20">
+                                    {category.name}
+                                </Text>
+                                <Text gray caption>
+                                    {category.count} products
+                                </Text>
+                            </Card>
+                        </TouchableOpacity>
+                    ))}
+                </Block>
+            </ScrollView>
         </Block>
     );
 };

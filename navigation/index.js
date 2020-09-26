@@ -5,10 +5,14 @@ import {createAppContainer} from 'react-navigation';
 
 import {theme} from '../constants/index'
 import Browse from "../screens/Browse";
+import Movie from '../screens/Movie';
+import Detail from "../screens/Detail";
 
 const screens = createStackNavigator(
     {
-        Browse
+        Browse,
+        Movie,
+        Detail
     },
     {
         defaultNavigationOptions: {
