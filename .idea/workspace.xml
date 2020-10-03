@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="849882d0-b76e-4f06-9c1d-62a91e2784d2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/components/Badge.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Card.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screens/Detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screens/Movie.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Badge.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Badge.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Browse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +63,9 @@
       <option name="presentableId" value="Default" />
       <updated>1601084349819</updated>
       <workItem from="1601084351305" duration="6829000" />
-      <workItem from="1601091193838" duration="2852000" />
+      <workItem from="1601091193838" duration="2878000" />
+      <workItem from="1601689304872" duration="126000" />
+      <workItem from="1601689699054" duration="6012000" />
     </task>
     <servers />
   </component>
@@ -78,9 +77,9 @@
       <screen x="0" y="23" width="1680" height="957" />
     </state>
     <state x="486" y="163" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.957@0.23.1680.957" timestamp="1601093514674" />
-    <state x="687" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1601089389050">
+    <state x="687" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1601691477386">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state x="687" y="233" width="670" height="676" key="search.everywhere.popup/0.23.1680.957@0.23.1680.957" timestamp="1601089389050" />
+    <state x="687" y="233" width="670" height="676" key="search.everywhere.popup/0.23.1680.957@0.23.1680.957" timestamp="1601691477386" />
   </component>
 </project>

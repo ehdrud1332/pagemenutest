@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
     badge: {
         height: theme.sizes.base,
         width: theme.sizes.base,
-        borderRadius: theme.sizes.border
+        borderRadius: theme.sizes.border,
     }
 });

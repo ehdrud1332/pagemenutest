@@ -4,48 +4,50 @@ import {
     Image,
     StyleSheet,
     ScrollView,
-    TouchableOpacity
+    TouchableOpacity,
 } from 'react-native';
-
-import {theme, mocks} from '../constants/index';
+import {movieApi, apiImage} from '../api'
+import {theme} from '../constants/index';
 
 
 import {Block, Text, Button, Card, Badge} from '../components'
 
 const {width} = Dimensions.get('window')
 
-
-
-
 const Browse = props => {
 
-    const [categories, setCategories] = useState([]);
-    const [active, setActive] = useState("Products")
+    const [active, setActive] = useState("en")
 
-
-    const [results, setResults] = useState({
-        similarMovie: [],
-        similarVideo: [],
+    const [movies, setMovies] = useState({
+        loading: true,
+        nowPlaying: [],
+        popular: [],
+        upcoming: [],
+        nowPlayingError: null,
+        popularError: null,
+        upcomingError: null,
     });
 
-
+    const {profile, navigation} = props;
+    const tabs = ['en', 'fr', 'ko']
 
     const handleTab = tab => {
-        const {categories} = props;
-        const filtered = categories.filter(category =>
-            category.tags.includes(tab.toLowerCase()))
-        setCategories(filtered)
-        console.log(filtered)
+
+        if (active === "en") {
+            console.log("en 찍")
+        }
+
+        const filtered = nowPlaying.filter(movie =>
+            movie.original_language.includes(tab.toLowerCase()))
+        setMovies({nowPlaying: filtered})
         setActive(tab)
     }
-
-
     const renderTab = (tab) => {
         const isActive = active === tab;
 
         return (
             <TouchableOpacity
-                key={`tab-${tab}`}
+                key={`tab._id`}
                 onPress={() => handleTab(tab)}
                 style={[styles.tab, isActive ? styles.active : null]}
             >
@@ -56,7 +58,26 @@ const Browse = props => {
         )
     }
 
-    const tabs = ["Products", "Inspirations", "shop"]
+    const getData = async () => {
+        const [nowPlaying, nowPlayingError] = await movieApi.nowPlaying();
+        const [popular, popularError] = await movieApi.popular();
+        const [upcoming, upcomingError] = await movieApi.upcoming();
+        setMovies({
+            loading: false,
+            nowPlaying,
+            popular,
+            upcoming,
+            nowPlayingError,
+            popularError,
+            upcomingError
+        })
+
+    }
+
+    useEffect(() =>{
+        getData();
+    }, [])
+
 
     return (
         <Block>
@@ -64,9 +85,9 @@ const Browse = props => {
                 <Text h1 bold>
                     Browse
                 </Text>
-                <Button onPress={() => props.navigation.navigate("Movie")}>
-                    <Image source={props.profile.avatar} style={styles.avatar} />
-                </Button>
+                {/*<Button onPress={() => props.navigation.navigate("Movie")}>*/}
+                {/*    <Image source={props.profile.avatar} style={styles.avatar} />*/}
+                {/*</Button>*/}
             </Block>
 
             <Block flex={false} row style={styles.tabs}>
@@ -78,26 +99,26 @@ const Browse = props => {
                 style={{paddingVertical: theme.sizes.base * 2}}
             >
                 <Block flex={false} row space="between" style={styles.categories}>
-                    {categories.map(category => (
+                    {movies.nowPlaying.map(movie => (
                         <TouchableOpacity
-                            key={category.name}
+                            key={movie.id}
                             onPress={() => props.navigation.navigate("Detail")}
                         >
 
                             <Card center middle shadow style={styles.category}>
-                                <Badge
-                                    margin={[0, 0, 15]}
-                                    size={50}
-                                    color="rgba(41, 216, 143, 0.20)"
-                                >
-                                    <Image source={category.image} />
-                                </Badge>
-                                <Text medium height="20">
-                                    {category.name}
-                                </Text>
-                                <Text gray caption>
-                                    {category.count} products
-                                </Text>
+                <Badge
+                    margin={[0, 0, 15]}
+                    size={50}
+                    color="rgba(41, 216, 143, 0.20)"
+                >
+                    <Image source={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}/>
+                </Badge>
+                <Text medium height="20">
+                    {movie.title}
+                </Text>
+                <Text gray caption>
+                    {movie.vote_average} votes
+                </Text>
                             </Card>
                         </TouchableOpacity>
                     ))}
@@ -106,11 +127,6 @@ const Browse = props => {
         </Block>
     );
 };
-
-Browse.defaultProps = {
-    profile: mocks.profile,
-    categories: mocks.categories
-}
 
 export default Browse;
 
@@ -145,6 +161,7 @@ const styles = StyleSheet.create({
         // this should be dynamic based on screen width
         minWidth: (width - theme.sizes.padding * 2.4 - theme.sizes.base) / 2,
         maxWidth: (width - theme.sizes.padding * 2.4 - theme.sizes.base) / 2,
-        maxHeight: (width - theme.sizes.padding * 2.4 - theme.sizes.base) / 2
+        maxHeight: (width - theme.sizes.padding * 2.4 - theme.sizes.base) / 2,
+        marginBottom: 15
     }
 });
