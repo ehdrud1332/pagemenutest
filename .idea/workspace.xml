@@ -1,12 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="849882d0-b76e-4f06-9c1d-62a91e2784d2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navigation/Stack.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screens/Category.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screens/StackNavigation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Badge.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Badge.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/back@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/back@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/fertilizers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/fertilizers@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/flowers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/flowers@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/plants.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/plants@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/plants_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/pots.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/pots@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/seeds.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/seeds@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/slider-dot@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/slider-dot@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/slider-dot@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/sprayers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/sprayers@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/mocks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navigation/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Browse.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Browse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/Movie.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Profile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,6 +96,7 @@
       <workItem from="1601091193838" duration="2878000" />
       <workItem from="1601689304872" duration="126000" />
       <workItem from="1601689699054" duration="6012000" />
+      <workItem from="1602233871042" duration="6609000" />
     </task>
     <servers />
   </component>
@@ -73,13 +104,21 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="486" y="163" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601093514674">
+    <state x="486" y="163" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602240413075">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state x="486" y="163" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.957@0.23.1680.957" timestamp="1601093514674" />
-    <state x="687" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1601691477386">
+    <state x="486" y="163" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.957@0.23.1680.957" timestamp="1602240413075" />
+    <state x="998" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602238985643">
       <screen x="0" y="23" width="1680" height="957" />
     </state>
-    <state x="687" y="233" width="670" height="676" key="search.everywhere.popup/0.23.1680.957@0.23.1680.957" timestamp="1601691477386" />
+    <state x="998" y="255" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.957@0.23.1680.957" timestamp="1602238985643" />
+    <state x="717" y="234" width="635" height="534" key="find.popup" timestamp="1602236508450">
+      <screen x="0" y="23" width="1680" height="957" />
+    </state>
+    <state x="717" y="234" width="635" height="534" key="find.popup/0.23.1680.957@0.23.1680.957" timestamp="1602236508450" />
+    <state x="687" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1602236859465">
+      <screen x="0" y="23" width="1680" height="957" />
+    </state>
+    <state x="687" y="233" width="670" height="676" key="search.everywhere.popup/0.23.1680.957@0.23.1680.957" timestamp="1602236859465" />
   </component>
 </project>

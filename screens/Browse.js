@@ -6,8 +6,9 @@ import {
     ScrollView,
     TouchableOpacity,
 } from 'react-native';
-import {movieApi, apiImage} from '../api'
+import {productApi, apiImage} from '../api'
 import {theme} from '../constants/index';
+
 
 
 import {Block, Text, Button, Card, Badge} from '../components'
@@ -16,38 +17,32 @@ const {width} = Dimensions.get('window')
 
 const Browse = props => {
 
-    const [active, setActive] = useState("en")
-
-    const [movies, setMovies] = useState({
+    const [active, setActive] = useState("All")
+    const [result, setResult] = useState({
         loading: true,
-        nowPlaying: [],
-        popular: [],
-        upcoming: [],
-        nowPlayingError: null,
-        popularError: null,
-        upcomingError: null,
+        products: [],
+        productsError: null
     });
 
     const {profile, navigation} = props;
-    const tabs = ['en', 'fr', 'ko']
+    const tabs = ['All', 'Phone', 'Tablet', 'Laptop']
 
     const handleTab = tab => {
 
-        if (active === "en") {
-            console.log("en 찍")
+        if (active === "All") {
+            console.log("All")
         }
 
-        const filtered = nowPlaying.filter(movie =>
-            movie.original_language.includes(tab.toLowerCase()))
-        setMovies({nowPlaying: filtered})
-        setActive(tab)
+        // const filtered = nowPlaying.filter(movie =>
+        //     movie.original_language.includes(tab.toLowerCase()))
+        // setMovies({nowPlaying: filtered})
+        // setActive(tab)
     }
     const renderTab = (tab) => {
         const isActive = active === tab;
 
         return (
             <TouchableOpacity
-                key={`tab._id`}
                 onPress={() => handleTab(tab)}
                 style={[styles.tab, isActive ? styles.active : null]}
             >
@@ -59,18 +54,13 @@ const Browse = props => {
     }
 
     const getData = async () => {
-        const [nowPlaying, nowPlayingError] = await movieApi.nowPlaying();
-        const [popular, popularError] = await movieApi.popular();
-        const [upcoming, upcomingError] = await movieApi.upcoming();
-        setMovies({
+        const [products, productsError] = await productApi.all();
+        setResult({
             loading: false,
-            nowPlaying,
-            popular,
-            upcoming,
-            nowPlayingError,
-            popularError,
-            upcomingError
+            productsError,
+            products
         })
+        console.log(products)
 
     }
 
@@ -81,15 +71,6 @@ const Browse = props => {
 
     return (
         <Block>
-            <Block flex={false} row center space="between" style={styles.header}>
-                <Text h1 bold>
-                    Browse
-                </Text>
-                {/*<Button onPress={() => props.navigation.navigate("Movie")}>*/}
-                {/*    <Image source={props.profile.avatar} style={styles.avatar} />*/}
-                {/*</Button>*/}
-            </Block>
-
             <Block flex={false} row style={styles.tabs}>
                 {tabs.map(tab => renderTab(tab))}
             </Block>
@@ -99,29 +80,49 @@ const Browse = props => {
                 style={{paddingVertical: theme.sizes.base * 2}}
             >
                 <Block flex={false} row space="between" style={styles.categories}>
-                    {movies.nowPlaying.map(movie => (
-                        <TouchableOpacity
-                            key={movie.id}
-                            onPress={() => props.navigation.navigate("Detail")}
-                        >
 
+                    {result.products.map(product => (
+
+
+                        <TouchableOpacity
+                            key={product.id}
+                            onPress={() => props.navigation.navigate("Detail", product._id)}
+                        >
+                            {console.log(apiImage(product.image.url))}
                             <Card center middle shadow style={styles.category}>
-                <Badge
-                    margin={[0, 0, 15]}
-                    size={50}
-                    color="rgba(41, 216, 143, 0.20)"
-                >
-                    <Image source={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}/>
-                </Badge>
-                <Text medium height="20">
-                    {movie.title}
-                </Text>
-                <Text gray caption>
-                    {movie.vote_average} votes
-                </Text>
+                                <Badge
+                                    margin={[0, 0, 15]}
+                                    size={50}
+                                    color="rgba(41, 216, 143, 0.20)"
+                                >
+                                    <Image style={{width: 80, height: 80,}} source={{uri : `http://localhost:1337${product.image.url}`}}/>
+
+                                </Badge>
+                                <Text medium height="20">
+                                    {product.name}
+                                </Text>
+                                <Text gray caption>
+                                    $ {product.price}
+                                </Text>
                             </Card>
+
                         </TouchableOpacity>
                     ))}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </Block>
             </ScrollView>
         </Block>

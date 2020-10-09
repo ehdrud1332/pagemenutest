@@ -1,12 +1,9 @@
 import axios from 'axios';
 
-export const TMDB_KEY = "c1d76ca84cd92ecf70d3ef7766e55d7c"
-
 const makeRequest = (path, params) =>
-    axios.get(`https://api.themoviedb.org/3${path}`, {
+    axios.get(`http://localhost:1337${path}`, {
         params: {
             ...params,
-            api_key: TMDB_KEY
         }
     });
 
@@ -45,9 +42,13 @@ export const tvApi = {
     Keywords: id => getAnything(`/tv/${id}/keywords`)
 }
 
+export const productApi = {
+    all : () => getAnything("/products")
+}
+
 
 export const apiImage = (
     path,
     defaultPoster = "https://images.unsplash.com/photo-1571847140471-1d7766e825ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=673&q=80"
 
-) => (path ? `https://image.tmdb.org/t/p/w500${path}` : defaultPoster );
+) => (path ? `http://localhost:1337${path}` : defaultPoster );

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-const Movie = () => {
+const Category = () => {
     return (
         <View>
             <Text>234</Text>
@@ -9,4 +9,4 @@ const Movie = () => {
     );
 };
 
-export default Movie;
+export default Category;
